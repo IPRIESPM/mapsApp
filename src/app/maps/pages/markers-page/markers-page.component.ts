@@ -30,23 +30,13 @@ export class MarkersPageComponent {
     if (!this.divMap) throw 'El elemento HTML no fue encontrado';
 
     this.map = new Map({
-      container: this.divMap.nativeElement, // container ID
-      style: 'mapbox://styles/mapbox/streets-v12', // style URL
+      container: this.divMap.nativeElement,
+      style: 'mapbox://styles/mapbox/streets-v12',
       center: this.currentLngLat,
       zoom: 13,
     });
 
     this.readFromLocalStorage();
-
-    // const markerHtml = document.createElement('div');
-    // markerHtml.innerHTML = 'Fernando Herrera'
-
-    // const marker = new Marker({
-    //   // color: 'red',
-    //   element: markerHtml
-    // })
-    //   .setLngLat( this.currentLngLat )
-    //   .addTo( this.map );
   }
 
   createMarker() {
@@ -74,8 +64,6 @@ export class MarkersPageComponent {
     this.saveToLocalStorage();
 
     marker.on('dragend', () => this.saveToLocalStorage());
-
-    // dragend
   }
 
   deleteMarker(index: number) {
